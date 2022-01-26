@@ -1,0 +1,23 @@
+loki:
+  enabled: true
+  config:
+    chunk_store_config:
+      max_look_back_period: 0s
+
+    table_manager:
+      retention_deletes_enabled: true
+      retention_period: 24h
+
+promtail:
+  enabled: true
+
+grafana:
+  enabled: true
+  sidecar:
+    datasources:
+      enabled: true
+  image:
+    tag: 6.7.0
+  service:
+    ## ClusterIP or LoadBalancer
+    type: LoadBalancer
